@@ -13,7 +13,17 @@ function fetchCocktailInfo(url, input) {
   fetch(url)
     .then((res) => res.json())
     .then((cocktail) => {
-      console.log(cocktail, input);
+      handleCocktail(cocktail, input);
     })
     .catch((error) => console.log(error));
 }
+
+function handleCocktail(cocktail, input) {
+    const main = document.querySelector(".main");
+    let h1 = document.createElement("h1");
+    h1.textContent = cocktail.drinks[0].strDrink;
+    main.append(h1)
+  console.log(cocktail.drinks[0].strDrink,input);
+}
+
+
