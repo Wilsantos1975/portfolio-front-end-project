@@ -23,7 +23,7 @@ function handleCocktail(cocktail, input) {
     let h1 = document.createElement("h1");
     h1.textContent = cocktail.drinks[0].strDrink;
     main.append(h1)
-  console.log(cocktail.drinks[0].strDrink,input);
+  console.log(cocktail);
 }
 
 
