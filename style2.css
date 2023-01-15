@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:700&display=swap");
+
 * {
   margin: 5px;
   box-sizing: border-box;
@@ -5,6 +7,8 @@
 }
 
 body {
+  height: 95vh;
+  /* why the height of the main children is changed here ? */
   background: #345783;
   /* background pic goes here */
   font-family: sans-serif;
@@ -14,27 +18,118 @@ body {
   display: flex;
   flex-direction: column;
 }
-header {
-  background: yellowgreen;
+
+nav {
+  display: flex;
+  min-height: 70px;
   padding: 2em 0 2em 0;
+  /* from here down added from style.css */
+  /* height: 150px; */
+  background: rgba(0, 0, 0, 0.4);
+  font-family: "Roboto";
+  /* margin: 0 8px; */
+  line-height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  /* width: 100%; */
+  /* display: inline-block; */
+}
+
+.nav-menu{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-branding {
+    font-size: 2rm;
+}
+
+.nav-link{
+    transition: 0.7s ease;
+}
+
+ .nav-link:hover {
+    color: dodgerblue;
+    cursor: pointer;
+ }
+
+ .hamburguer {
+    display: none
+    cursor: pointer:
+ }
+
+ .bar{
+    display:block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+   -webkit-transition: all 0.3s ease-in-out;
+   transition: all 0.3s ease-in-out;
+   background-color: white;
+
+
+ }
+
+main h1 {
+  /* display: flex; */
+  /* display: inline-block; */
+  /* margin-left: 300px; */
+  /* margin-right:1px; */
+
+  /* align-items: center; */
+  font-family: "Roboto";
+  /* font-size: 50px; */
+}
+
+
+
+.main {
+  display: flex;
+  flex: 1;
 }
 
 .left {
   background: #178761;
   padding: 3em 0 3em 0;
+  flex: 1 1 100px;
 }
 
 main {
+  display: flex;
   background: #982459;
   padding: 3em 0 3em 0;
+  flex: 5 5 150px;
 }
 
 .right {
   background: #654816;
   padding: 3em 0 3em 0;
+  flex: 1 1 100px;
 }
 
 footer {
   background: chocolate;
   padding: 1em 0 1em 0;
 }
+
+@media all and (max-width: 550px) {
+  .main {
+    flex-direction: column;
+  }
+  main {
+    padding: 5em 0 5em 0;
+  }
+  a {
+    flex-direction: column;
+  }
+}
+
+@media(max-width:768px) {
+    .hamburguer{
+        display: block
+    }
+}
+

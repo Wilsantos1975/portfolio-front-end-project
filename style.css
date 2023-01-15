@@ -1,99 +1,81 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
 
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .wrapper {
-  background: url(./assets/pylyp-sukhenko-ibh9J-fIgZU-unsplash.jpg) no-repeat;
-  background-size: cover;
-  height: 100vh;
+    background: url(./assets/pylyp-sukhenko-ibh9J-fIgZU-unsplash.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 .navbar {
-  height: 80px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
+height: 80px;
+width: 100%;
+background: rgba(0, 0, 0, 0.4);
 }
 
 .navbar ul {
-  float: right;
-  margin-right: 20px;
+    float: right;
+    margin-right: 20px;
 }
 
 .navbar ul li {
-  list-style: none;
-  margin: 0 8px;
-  display: inline-block;
-  line-height: 80px;
+    list-style: none;
+    margin: 0 8px;
+    display: inline-block;
+    line-height: 80px;
 }
 
 .navbar ul li a {
-  text-decoration: none;
-  color: rgb(212, 165, 81);
-  padding: 6px 13px;
-  font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: rgb(212,165,81);
+    padding: 6px 13px;
+    font-family: 'Roboto', sans-serif;
 }
 .navbar ul li a.active,
 .navbar ul li a:hover {
-  background-color: #35161b;
-  border-radius: 2px;
-  transition: 0.4s;
+    background-color: #35161B;
+    border-radius: 2px;
+    transition: 0.4s;
 }
 
 .logo {
-  width: 140px;
-  height: auto;
-  padding: 20px 100px;
+    width: 140px;
+    height: auto;
+    padding: 20px 100px;
 }
 
 .wrapper .middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  user-select: none;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+    font-family: sans-serif;
+    color:#D19C3D;
+    user-select: none;
+    
 }
-
-.middle h1 {
-  color: #d19c3d;
-  font-size: 70px;
-  font-weight: bold;
-  width: 900px;
-  text-align: center;
-  font-family: Cinzel + Decorative;
+.middle .buttons{
+	margin: 35px 280px;
 }
-
-.middle h2 {
-  color: #d19c3d;
-  font-size: 70px;
-  font-weight: bold;
-  width: 885px;
-  text-align: center;
-  font-family: Cinzel + Decorative;
+.buttons button{
+	height: 50px;
+	width: 150px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #ffb3b3;
+	background: red;
+	outline: none;
+	cursor: pointer;
+	border: 1px solid #cc0000;
+	border-radius: 25px;
+	transition: .4s;
 }
-.middle .buttons {
-  margin: 35px 280px;
+.buttons .btn2{
+	margin-left: 25px;
 }
-
-.form input {
-  height: 50px;
-  width: 150px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #d19c3d;
-  background: cornsilk;
-  border: 1px solid #35161b;
-  outline: none;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: .5s;
-}
-
-.buttons .btn {
-  margin-left: 25px;
-}
-.buttons button:hover {
-    background: #35161b;
+.buttons button:hover{
+	background: #cc0000;
 }
