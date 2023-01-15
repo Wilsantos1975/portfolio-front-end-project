@@ -1,0 +1,40 @@
+* {
+  margin: 5px;
+  box-sizing: border-box;
+  /* this is a reset. box-sizing : border-box,on an element, padding and border are included in the width and height: */
+}
+
+body {
+  background: #345783;
+  /* background pic goes here */
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: yellowgreen;
+  padding: 2em 0 2em 0;
+}
+
+.left {
+  background: #178761;
+  padding: 3em 0 3em 0;
+}
+
+main {
+  background: #982459;
+  padding: 3em 0 3em 0;
+}
+
+.right {
+  background: #654816;
+  padding: 3em 0 3em 0;
+}
+
+footer {
+  background: chocolate;
+  padding: 1em 0 1em 0;
+}
