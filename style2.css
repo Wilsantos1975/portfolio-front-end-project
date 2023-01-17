@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:700&display=swap");
 
 * {
-  margin: 5px;
-  padding: 0;
-  box-sizing: border-box;
-  /* this is a reset. box-sizing : border-box,on an element, padding and border are included in the width and height: */
+    box-sizing: border-box;
+    /* this is a reset. box-sizing : border-box,on an element, padding and border are included in the width and height: */
 }
 
 body {
+    margin: 5px;
+    padding: 0;
+  display: flex;
   height: 95vh;
   /* why the height of the main children is changed here ? */
   background: #345783;
@@ -16,36 +17,35 @@ body {
   text-align: center;
   color: white;
   font-size: 24px;
-  display: flex;
   flex-direction: column;
 }
 
 
-
-nav {
-  display: flex;
-  min-height: 70px;
-  padding: 2em 0 2em 0;
-  /* from here down added from style.css */
-  /* height: 150px; */
-  background: #262626;
-  font-family: "Roboto";
-  /* margin: 0 8px; */
-  line-height: 50px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px;
-  /* width: 100%; */
-  /* display: inline-block; */
-}
 
 li {
     list-style: none;
 }
 
 a {
-    color : white;
+    color: white;
     text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    min-height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 0 2em 0;
+    /* from here down added from style.css */
+    /* height: 150px; */
+    font-family: "Roboto";
+    background: #262626;
+    /* margin: 0 8px; */
+  line-height: 50px;
+  padding: 0 24px;
+  /* width: 100%; */
+  /* display: inline-block; */
 }
 
 .nav-menu {
@@ -56,7 +56,9 @@ a {
 }
 
 .nav-branding {
-  font-size: 2rm;
+  font-size: 2rem;
+  margin: .5rem;
+
 }
 
 .nav-link {
@@ -83,17 +85,15 @@ a {
   background-color: white;
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .hamburguer {
     display: block;
   }
 
   .hamburguer.active .bar:nth-child(2) {
     opacity: 0;
-    /* transform: translateY(8px) rotate(45deg); */
   }
   .hamburguer.active .bar:nth-child(1) {
-
     transform: translateY(8px) rotate(45deg);
   }
 
@@ -115,38 +115,27 @@ a {
 
   .nav-item {
     margin: 16px 0;
-}
+  }
 
-.nav-menu.active{
+  .nav-menu.active {
     left: 0;
+  }
 }
 
-}
-
-@media all and (max-width: 550px) {
+@media(max-width: 768px) {
   .main {
     flex-direction: column;
   }
   main {
     padding: 5em 0 5em 0;
   }
-  a {
-    flex-direction: column;
-  }
+  
 }
 
-
-
-
 main h1 {
-  /* display: flex; */
-  /* display: inline-block; */
-  /* margin-left: 300px; */
-  /* margin-right:1px; */
-
-  /* align-items: center; */
+ 
   font-family: "Roboto";
-  /* font-size: 50px; */
+  
 }
 
 .main {
@@ -177,6 +166,3 @@ footer {
   background: chocolate;
   padding: 1em 0 1em 0;
 }
-
-
-
