@@ -4,46 +4,70 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      async
+    ></script>
     <link rel="stylesheet" href="./style2.css" />
     <script src="./index.js" async></script>
     <title>Libations</title>
   </head>
   <body>
-    <nav class="navbar">
-    
-      <div class="brand-title">Libations</div>
+    <div class="container">
+      <nav class="navbar col-12">
+        <div class="brand-title">Libations</div>
 
-<a href="#" class="toggle-button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-</a>
+        <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
 
-      <div class="navbar-links">
-        <ul>
-          <li><a href="#" class="nav-link">ingredients</a></li>
-          <li><a href="#" class="nav-link">popular</a></li>
-          <li><a href="#" class="nav-link">random</a></li>
-        </ul>
+        <div class="navbar-links">
+          <ul>
+            <li><a href="#" class="nav-link">classics</a></li>
+            <li><a href="#" class="nav-link">popular</a></li>
+            <li><a href="#" class="nav-link">random</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="col-12">
+          <h1>menu</h1>
+
+          <form class="form">
+            <label for="cocktail" class="form-label">cocktail</label>
+            <input type="text" id="cocktail" class="form-control-lg" required />
+            <button type="submit" class="btn btn-primary">search</button>
+            <select name="" class="form-select-lg">
+              <option value="ingredients">ingredients</option>
+            </select>
+          </form>
+        </div>
       </div>
 
-    </nav>
+      <div class="main-div">
+        
+        <main class="main-div">
+          <h1>Libations</h1>
+          <div class="container">
+            <div class="card">
+              <div class="card-body">
+                
+              </div>
+            </div>
+          </div>
 
-    <div class="main-div">
-      <aside class="left">
-        <h1>start here</h1>
+        </main>
+        
+      </div>
 
-        <form class="form">
-          <input type="text" name="cocktail" placeholder="cocktail" />
-          <input type="submit" class="btn" />
-        </form>
-      </aside>
-      <main>
-        <h1>Libations</h1>
-      </main>
-      <aside class="right">right</aside>
+      <footer>footer</footer>
     </div>
-
-    <footer>footer</footer>
   </body>
 </html>

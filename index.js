@@ -1,4 +1,3 @@
-
 //logic below is is for hamburger menu;
 
 // const hamburger = document.querySelector(".hamburger");
@@ -15,64 +14,126 @@
 //   });
 // });
 
+// logic below if for the select bar
+let ingredients = document.querySelector(".form-select-lg");
 
+let ingredientsNames = [
+  "Rum",
+  "Bourbon",
+  "Vodka",
+  "Wine",
+  "Whiskey",
+  "Scotch",
+  "Gin",
+  "Tequila",
+  "Mezcal",
+  "Coffee",
+  "Sweet Vermouth",
+  "Dry Vermouth",
+  "light Rum",
+  "dark rum",
+];
 
+ingredientsNames.forEach((ingredient) => {
+  let tag = document.createElement("option");
+  tag.innerHTML = ingredient;
+  tag.value = ingredient;
+  ingredients.append(tag);
+});
 
 const cocktailFormSubmit = document.querySelector("form");
 const main = document.querySelector("main");
 
-// cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent); // 45 minutes lost because of async //1 hour testing the api, and it was the missing api key.
+cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent); // 45 minutes lost because of async //1 hour testing the api, and it was the missing api key.
 
 function cocktailFormSubmitEvent(e) {
   e.preventDefault();
   const input = e.target.cocktail.value;
+
   const BASE_URL = `https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${input}`;
+
   fetchCocktailInfo(BASE_URL, input);
   e.target.cocktail.value = "";
 }
 
+function fetchCocktailInfo(url, input) {
+  fetch(url)
+    .then((res) => res.json())
+    .then((cocktail) => {
+      handleCocktail(cocktail, input);
+    })
+    .catch((error) => console.log(error));
+}
+// async function fetchCocktailInfo(url, input) {
+//   //function written as async await, to test the api
+//   // const response = await fetch(url);
+//   // const data = await response.json();
+//   // const drinkFound = data.drinks.find((drink) => drink.strDrink.toLowerCase() === input.toUpperCase());
+//   // console.log(drinkFound)
 
-// function fetchCocktailInfo(url, input) {
-//   fetch(url)
-//     .then((res) => res.json())
-//     .then((cocktail) => {
-//       handleCocktail(cocktail, input);
-//     })
-//     .catch((error) => console.log(error));
+//   singleCocktail(data, input);
 // }
 
-async function fetchCocktailInfo(url, input) { //function written as async await, to test the api
-  const response = await fetch(url);
-  const cocktail = await response.json();
-  handleCocktail(cocktail, input)
-}
-
 function handleCocktail(cocktail, input) {
-  cocktail.drinks.length > 1 ? manyCocktails(cocktail,input) : singleCocktail(cocktail,input);
+  console.log(cocktail);
+  const drinkFound = cocktail.drinks.find(
+    (drink) => drink.strDrink.toLowerCase() === input.toLowerCase()
+  );
+  createCard(drinkFound);
+}
+
+function createCard(drink) {
+  const card = document.querySelector(".card");
   
+  const cardBody = document.querySelector(".card-body");
+  const cardInstructions = document.createElement("div.card-text");
+  const cardImage = document.createElement("img");
+  cardImage.className = "card-img-top";
+  cardImage.src = drink.strDrinkThumb
+  const title = document.createElement("div.card-title");
+  title.textContent = drink.strDrink;
+
+
+  console.log(drink)
+  title.append(cardBody);
+  cardBody.textContent = drink.strInstructions
+  card.append(cardImage)
+  card.append(title);
+  card.append(cardInstructions)
 }
 
-function manyCocktails(cocktail, input) {
-  let ul = document.createElement("ul");
+//  function singleCocktail(cocktail, input) {
 
-  cocktail.drinks.map((cocktail) => {
-    let li = document.createElement("li");
-    li.innerHTML = `<a href="#">${cocktail.strDrink}</a>`;
-    ul.append(li);
-  });
-  main.append(ul);
-}
+// for (let i = 0; i < cocktail.drinks.length; i++) {
+//   const drink = cocktail.drinks[i];
 
-function singleCocktail(cocktail) {
-  let h1 = document.createElement("h1");
-  h1.textContent = cocktail.drinks[0].strDrink;
-  main.append(h1);
-  
-}
+//   if (input.toUpperCase() === drink.strDrink.toUpperCase()) {
+//     console.log(drink[i]);
+//   } else {
+//     console.log("error");
+//   }
+
+// }
+
+
+//   function createCard() {
+//     const card = document.querySelector(".card");
+//     const cardBody = document.querySelector(".card-body");
+//     let title = document.createElement("div.card-title");
+//     title.textContent = cocktail.drinks.strDrink;
+//     title.append(cardBody);
+//     card.append(title);
+//   }
+// });
+
+let h1 = document.createElement("h1");
+// h1.textContent = cocktail.drinks[0].strDrink;
+main.append(h1);
+// }
 
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
 
 toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
-})
+});
