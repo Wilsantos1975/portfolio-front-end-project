@@ -64,18 +64,10 @@ function fetchCocktailInfo(url, input) {
     })
     .catch((error) => console.log(error));
 }
-// async function fetchCocktailInfo(url, input) {
-//   //function written as async await, to test the api
-//   // const response = await fetch(url);
-//   // const data = await response.json();
-//   // const drinkFound = data.drinks.find((drink) => drink.strDrink.toLowerCase() === input.toUpperCase());
-//   // console.log(drinkFound)
-
-//   singleCocktail(data, input);
-// }
 
 function handleCocktail(cocktail, input) {
   console.log(cocktail);
+
   const drinkFound = cocktail.drinks.find(
     (drink) => drink.strDrink.toLowerCase() === input.toLowerCase()
   );
@@ -84,47 +76,43 @@ function handleCocktail(cocktail, input) {
 
 function createCard(drink) {
   const card = document.querySelector(".card");
-  
   const cardBody = document.querySelector(".card-body");
   const cardInstructions = document.createElement("div.card-text");
   const cardImage = document.createElement("img");
   cardImage.className = "card-img-top";
-  cardImage.src = drink.strDrinkThumb
+  cardImage.src = drink.strDrinkThumb;
   const title = document.createElement("div.card-title");
   title.textContent = drink.strDrink;
 
+  let ingredientsArray = Object.values(drink).map((ingredient) => {
+    return ingredient;
+  });
 
-  console.log(drink)
+  let ingredients = ingredientsArray.slice(17, 31);
+  let measures = ingredientsArray.slice(32, 46);
+  let final = {}
+
+  for (let i = 0; i < ingredients.length; i++) {
+    for (let j = 0; j < measures.length; j++) {
+        if (ingredients[i]!== null && measures[j] !== null){
+final.ingredient = ingredients[i];
+        }
+      
+    }
+    
+  }
+
+  console.log(final)
+
+  // console.log(drink)
   title.append(cardBody);
-  cardBody.textContent = drink.strInstructions
-  card.append(cardImage)
+  cardBody.textContent = drink.strInstructions;
+  card.append(cardImage);
   card.append(title);
-  card.append(cardInstructions)
+  card.append(cardInstructions);
 }
 
-//  function singleCocktail(cocktail, input) {
 
-// for (let i = 0; i < cocktail.drinks.length; i++) {
-//   const drink = cocktail.drinks[i];
-
-//   if (input.toUpperCase() === drink.strDrink.toUpperCase()) {
-//     console.log(drink[i]);
-//   } else {
-//     console.log("error");
-//   }
-
-// }
-
-
-//   function createCard() {
-//     const card = document.querySelector(".card");
-//     const cardBody = document.querySelector(".card-body");
-//     let title = document.createElement("div.card-title");
-//     title.textContent = cocktail.drinks.strDrink;
-//     title.append(cardBody);
-//     card.append(title);
-//   }
-// });
 
 let h1 = document.createElement("h1");
 // h1.textContent = cocktail.drinks[0].strDrink;
@@ -137,3 +125,13 @@ const navbarLinks = document.querySelector(".navbar-links");
 toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
 });
+
+// async function fetchCocktailInfo(url, input) {
+//   //function written as async await, to test the api
+//   // const response = await fetch(url);
+//   // const data = await response.json();
+//   // const drinkFound = data.drinks.find((drink) => drink.strDrink.toLowerCase() === input.toUpperCase());
+//   // console.log(drinkFound)
+
+//   singleCocktail(data, input);
+// }
