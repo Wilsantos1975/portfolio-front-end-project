@@ -79,12 +79,11 @@ classics.addEventListener("click", getRandom);
 
 async function getRandom(e) {
   e.preventDefault();
-  const response = await fetch(`www.thecocktaildb.com/api/json/v2/9973533/random.php`);
+  const response = await fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/random.php`);
   const data = await response.json();
-  // const classic = data
-
-  console.log(data)
-
+  const random= data;
+  // console.log(random);
+   createCard(random)
 }
 
 function createCard(drink) {
@@ -114,10 +113,7 @@ function createCard(drink) {
   card.append(cardInstructions);
 }
 
-let h1 = document.createElement("h1");
-// h1.textContent = cocktail.drinks[0].strDrink;
-main.append(h1);
-// }
+
 
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
