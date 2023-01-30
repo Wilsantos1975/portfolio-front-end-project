@@ -39,6 +39,12 @@ body {
   font-size: 3.5rem;
   margin: 0.5rem;
 }
+
+.logo {
+  width: 200px;
+  height: 200px;
+
+}
 /* container of the li , have to set parent first */
 .navbar-links ul {
   margin: 0;

@@ -16,6 +16,9 @@
 
 // logic below if for the select bar
 let ingredients = document.querySelector(".form-select-lg");
+const cocktailFormSubmit = document.querySelector("form");
+const main = document.querySelector("main");
+const classics = document.querySelector("#classics");
 
 let ingredientsNames = [
   "Rum",
@@ -41,10 +44,8 @@ ingredientsNames.forEach((ingredient) => {
   ingredients.append(tag);
 });
 
-const cocktailFormSubmit = document.querySelector("form");
-const main = document.querySelector("main");
 
-cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent); // 45 minutes lost because of async //1 hour testing the api, and it was the missing api key.
+cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent);
 
 function cocktailFormSubmitEvent(e) {
   e.preventDefault();
@@ -66,12 +67,24 @@ function fetchCocktailInfo(url, input) {
 }
 
 function handleCocktail(cocktail, input) {
-  console.log(cocktail);
+  // console.log(cocktail);
 
   const drinkFound = cocktail.drinks.find(
     (drink) => drink.strDrink.toLowerCase() === input.toLowerCase()
   );
   createCard(drinkFound);
+}
+
+classics.addEventListener("click", getRandom);
+
+async function getRandom(e) {
+  e.preventDefault();
+  const response = await fetch(`www.thecocktaildb.com/api/json/v2/9973533/random.php`);
+  const data = await response.json();
+  // const classic = data
+
+  console.log(data)
+
 }
 
 function createCard(drink) {
@@ -90,19 +103,8 @@ function createCard(drink) {
 
   let ingredients = ingredientsArray.slice(17, 31);
   let measures = ingredientsArray.slice(32, 46);
-  let final = {}
 
-  for (let i = 0; i < ingredients.length; i++) {
-    for (let j = 0; j < measures.length; j++) {
-        if (ingredients[i]!== null && measures[j] !== null){
-final.ingredient = ingredients[i];
-        }
-      
-    }
-    
-  }
-
-  console.log(final)
+  // console.log(final)
 
   // console.log(drink)
   title.append(cardBody);
@@ -111,8 +113,6 @@ final.ingredient = ingredients[i];
   card.append(title);
   card.append(cardInstructions);
 }
-
-
 
 let h1 = document.createElement("h1");
 // h1.textContent = cocktail.drinks[0].strDrink;
