@@ -18,7 +18,9 @@
 let ingredients = document.querySelector(".form-select-lg");
 const cocktailFormSubmit = document.querySelector("form");
 const main = document.querySelector("main");
-const classics = document.querySelector("#classics");
+const classics = document.querySelector("#classics")
+const random = document.querySelector("#random");
+const latest = document.querySelector("#latest");
 
 let ingredientsNames = [
   "Rum",
@@ -45,6 +47,7 @@ ingredientsNames.forEach((ingredient) => {
 });
 
 
+//code below is for the cocktail input
 cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent);
 
 function cocktailFormSubmitEvent(e) {
@@ -67,23 +70,56 @@ function fetchCocktailInfo(url, input) {
 }
 
 function handleCocktail(cocktail, input) {
-  // console.log(cocktail);
-
   const drinkFound = cocktail.drinks.find(
     (drink) => drink.strDrink.toLowerCase() === input.toLowerCase()
   );
   createCard(drinkFound);
 }
 
-classics.addEventListener("click", getRandom);
+// for the random button
+random.addEventListener("click", getRandom);
 
 async function getRandom(e) {
   e.preventDefault();
-  const response = await fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/random.php`);
+  const response = await fetch(
+    `https://www.thecocktaildb.com/api/json/v2/9973533/random.php`
+  );
   const data = await response.json();
-  const random= data;
-  // console.log(random);
-   createCard(random)
+  const random = data.drinks[0];
+
+  createCard(random);
+}
+
+//for the latest button
+
+latest.addEventListener("click", getLatest);
+
+async function getLatest(e) {
+  e.preventDefault();
+  const response = await fetch(
+    `https://www.thecocktaildb.com/api/json/v2/9973533/latest.php`
+  );
+  const data = await response.json();
+  const popular = data.drinks;
+  popular.forEach((drink) => {
+    createCard(drink);
+  });
+}
+
+// for the classics button 
+
+classics.addEventListener("click", getclassics);
+
+async function getclassics(e) {
+  e.preventDefault();
+  const response = await fetch(
+    `https://www.thecocktaildb.com/api/json/v2/9973533/popular.php`
+  );
+  const data = await response.json();
+  const classics = data.drinks;
+  classics.forEach((drink) => {
+    createCard(drink);
+  });
 }
 
 function createCard(drink) {
@@ -112,8 +148,6 @@ function createCard(drink) {
   card.append(title);
   card.append(cardInstructions);
 }
-
-
 
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
