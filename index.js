@@ -18,7 +18,7 @@
 let ingredients = document.querySelector(".form-select-lg");
 const cocktailFormSubmit = document.querySelector("form");
 const main = document.querySelector("main");
-const classics = document.querySelector("#classics")
+const classics = document.querySelector("#classics");
 const random = document.querySelector("#random");
 const latest = document.querySelector("#latest");
 
@@ -45,7 +45,6 @@ ingredientsNames.forEach((ingredient) => {
   tag.value = ingredient;
   ingredients.append(tag);
 });
-
 
 //code below is for the cocktail input
 cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent);
@@ -106,7 +105,7 @@ async function getLatest(e) {
   });
 }
 
-// for the classics button 
+// for the classics button
 
 classics.addEventListener("click", getclassics);
 
@@ -131,22 +130,35 @@ function createCard(drink) {
   cardImage.src = drink.strDrinkThumb;
   const title = document.createElement("div.card-title");
   title.textContent = drink.strDrink;
-
+  const span = document.createElement('span.card-subtitle')
+  let recipe = "";
+  
   let ingredientsArray = Object.values(drink).map((ingredient) => {
     return ingredient;
   });
-
-  let ingredients = ingredientsArray.slice(17, 31);
-  let measures = ingredientsArray.slice(32, 46);
-
-  // console.log(final)
+  
+  for (let i = 0; i < 15; i++) {
+    let ingredients = ingredientsArray.slice(17, 25);
+    let measures = ingredientsArray.slice(32, 40);
+    // recipe = `${ingredients[i]} -  ${measures[i]}`
+    // console.log()
+    
+    if (ingredients[i] !== null || measures[i] !== null) {
+      recipe = `${ingredients[i]} - ${measures[i]}`;
+      // console.log(recipe);
+      span.textContent = recipe
+    }
+  }
 
   // console.log(drink)
-  title.append(cardBody);
   cardBody.textContent = drink.strInstructions;
+  title.append(cardBody);
   card.append(cardImage);
   card.append(title);
+  card.append(span)
   card.append(cardInstructions);
+
+  // console.log(cardBody.textContent)
 }
 
 const toggleButton = document.querySelector(".toggle-button");
