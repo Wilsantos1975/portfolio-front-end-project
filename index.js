@@ -22,29 +22,29 @@ const classics = document.querySelector("#classics");
 const random = document.querySelector("#random");
 const latest = document.querySelector("#latest");
 
-let ingredientsNames = [
-  "Rum",
-  "Bourbon",
-  "Vodka",
-  "Wine",
-  "Whiskey",
-  "Scotch",
-  "Gin",
-  "Tequila",
-  "Mezcal",
-  "Coffee",
-  "Sweet Vermouth",
-  "Dry Vermouth",
-  "light Rum",
-  "dark rum",
-];
+// let ingredientsNames = [
+//   "Rum",
+//   "Bourbon",
+//   "Vodka",
+//   "Wine",
+//   "Whiskey",
+//   "Scotch",
+//   "Gin",
+//   "Tequila",
+//   "Mezcal",
+//   "Coffee",
+//   "Sweet Vermouth",
+//   "Dry Vermouth",
+//   "light Rum",
+//   "dark rum",
+// ];
 
-ingredientsNames.forEach((ingredient) => {
-  let tag = document.createElement("option");
-  tag.innerHTML = ingredient;
-  tag.value = ingredient;
-  ingredients.append(tag);
-});
+// ingredientsNames.forEach((ingredient) => {
+//   let tag = document.createElement("option");
+//   tag.innerHTML = ingredient;
+//   tag.value = ingredient;
+//   ingredients.append(tag);
+// });
 
 //code below is for the cocktail input
 cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent);
@@ -72,6 +72,11 @@ function handleCocktail(cocktail, input) {
   const drinkFound = cocktail.drinks.find(
     (drink) => drink.strDrink.toLowerCase() === input.toLowerCase()
   );
+  document.querySelector("#container").remove();
+  const container = document.createElement("div");
+  container.setAttribute("id", "container");
+  document.querySelector("main h1").after(container);
+
   createCard(drinkFound);
 }
 
@@ -85,6 +90,11 @@ async function getRandom(e) {
   );
   const data = await response.json();
   const random = data.drinks[0];
+
+  document.querySelector("#container").remove();
+  const container = document.createElement("div");
+  container.setAttribute("id", "container");
+  document.querySelector("main h1").after(container);
 
   createCard(random);
 }
@@ -100,6 +110,12 @@ async function getLatest(e) {
   );
   const data = await response.json();
   const popular = data.drinks;
+
+  document.querySelector("#container").remove();
+  const container = document.createElement("div");
+  container.setAttribute("id", "container");
+  document.querySelector("main h1").after(container);
+
   popular.forEach((drink) => {
     createCard(drink);
   });
@@ -116,49 +132,61 @@ async function getclassics(e) {
   );
   const data = await response.json();
   const classics = data.drinks;
+
+  document.querySelector("#container").remove();
+  const container = document.createElement("div");
+  container.setAttribute("id", "container");
+  document.querySelector("main h1").after(container);
+
   classics.forEach((drink) => {
     createCard(drink);
   });
 }
 
 function createCard(drink) {
-  const card = document.querySelector(".card");
-  const cardBody = document.querySelector(".card-body");
+
+  const card = document.createElement("div");
+
+  document.getElementById("container").append(card);
+
+  card.classList.add("card");
+  const cardBody = document.createElement("div");
+  // card.append(cardBody);
+  cardBody.classList.add("card-body");
+
   const cardInstructions = document.createElement("div.card-text");
   const cardImage = document.createElement("img");
   cardImage.className = "card-img-top";
   cardImage.src = drink.strDrinkThumb;
   const title = document.createElement("div.card-title");
   title.textContent = drink.strDrink;
-  const span = document.createElement('span.card-subtitle')
-  let recipe = "";
-  
+  const span = document.createElement("span.card-subtitle");
+  let recipe = []
+
   let ingredientsArray = Object.values(drink).map((ingredient) => {
     return ingredient;
   });
   
-  for (let i = 0; i < 15; i++) {
+  console.log(ingredientsArray)
+  for (let i = 0; i < 8; i++) {
     let ingredients = ingredientsArray.slice(17, 25);
     let measures = ingredientsArray.slice(32, 40);
-    // recipe = `${ingredients[i]} -  ${measures[i]}`
-    // console.log()
-    
     if (ingredients[i] !== null || measures[i] !== null) {
-      recipe = `${ingredients[i]} - ${measures[i]}`;
-      // console.log(recipe);
-      span.textContent = recipe
+      recipe.push(`${ingredients[i]} - ${measures[i]}`);
+      console.log(recipe);
     }
   }
+  const ul = document.createElement("ul")
 
-  // console.log(drink)
+  recipe.forEach((elements) => {
+    let li = document.createElement('li');
+    li.textContent = elements
+    ul.append(li)
+  })
+  span.textContent = recipe;
   cardBody.textContent = drink.strInstructions;
-  title.append(cardBody);
-  card.append(cardImage);
-  card.append(title);
-  card.append(span)
-  card.append(cardInstructions);
-
-  // console.log(cardBody.textContent)
+  card.append(cardImage,title,ul,cardBody)
+  
 }
 
 const toggleButton = document.querySelector(".toggle-button");

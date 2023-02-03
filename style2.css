@@ -24,7 +24,7 @@ body {
   /* font-family: sans-serif; */
   /* text-align: center; */
   /* color: white; */
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .navbar {
@@ -91,10 +91,9 @@ main h1 {
 }
 
 .main-div {
-    
- 
-  display: flex;
-  flex: 1;
+
+  /* display: flex; */
+  /* flex: 1; */
 }
  
 .row {
@@ -107,6 +106,7 @@ main h1 {
 
 .card {
   width: 200px;
+  margin-bottom: 25px;
 }
 
 .left {
@@ -120,11 +120,11 @@ main h1 {
 }
 
 main {
-  display: column;
+  /* display: column; */
   /* justify-content: start; */
   text-align: center;
   
-  border: #178761 solid;
+  /* border: #178761 solid; */
   padding: 3em 0 3em 0;
   flex: 5 5 150px; 
 }
@@ -153,6 +153,13 @@ footer {
   bottom: 0%;
   left: 0;
   padding: 1em 0 1em 0;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
 }
 
 @media (max-width: 400px) {
