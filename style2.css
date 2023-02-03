@@ -134,7 +134,13 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  text-align: center;
+  list-style: none;
 
+}
+
+#container ul {
+  list-style: none;
 }
 
 form {
