@@ -7,6 +7,7 @@
 //   hamburger.classList.toggle("active");
 //   navMenu.classList.toggle("active");
 // });
+
 // document.querySelectorAll(".nav-link").forEach((link) => {
 //   addEventListener("click", () => {
 //     hamburger.classList.remove("active");
@@ -21,30 +22,6 @@ const main = document.querySelector("main");
 const classics = document.querySelector("#classics");
 const random = document.querySelector("#random");
 const latest = document.querySelector("#latest");
-
-// let ingredientsNames = [
-//   "Rum",
-//   "Bourbon",
-//   "Vodka",
-//   "Wine",
-//   "Whiskey",
-//   "Scotch",
-//   "Gin",
-//   "Tequila",
-//   "Mezcal",
-//   "Coffee",
-//   "Sweet Vermouth",
-//   "Dry Vermouth",
-//   "light Rum",
-//   "dark rum",
-// ];
-
-// ingredientsNames.forEach((ingredient) => {
-//   let tag = document.createElement("option");
-//   tag.innerHTML = ingredient;
-//   tag.value = ingredient;
-//   ingredients.append(tag);
-// });
 
 //code below is for the cocktail input
 cocktailFormSubmit.addEventListener("submit", cocktailFormSubmitEvent);
@@ -75,7 +52,7 @@ function handleCocktail(cocktail, input) {
   document.querySelector("#container").remove();
   const container = document.createElement("div");
   container.setAttribute("id", "container");
-  document.querySelector("main h1").after(container);
+  document.querySelector("main").after(container);
 
   createCard(drinkFound);
 }
@@ -94,7 +71,7 @@ async function getRandom(e) {
   document.querySelector("#container").remove();
   const container = document.createElement("div");
   container.setAttribute("id", "container");
-  document.querySelector("main h1").after(container);
+  document.querySelector("main").after(container);
 
   createCard(random);
 }
@@ -114,7 +91,7 @@ async function getLatest(e) {
   document.querySelector("#container").remove();
   const container = document.createElement("div");
   container.setAttribute("id", "container");
-  document.querySelector("main h1").after(container);
+  document.querySelector("main").after(container);
 
   popular.forEach((drink) => {
     createCard(drink);
@@ -136,13 +113,13 @@ async function getclassics(e) {
   document.querySelector("#container").remove();
   const container = document.createElement("div");
   container.setAttribute("id", "container");
-  document.querySelector("main h1").after(container);
+  document.querySelector("main").after(container);
 
   classics.forEach((drink) => {
     createCard(drink);
   });
 }
-
+// function to create card
 function createCard(drink) {
 
   const card = document.createElement("div");
@@ -151,7 +128,6 @@ function createCard(drink) {
 
   card.classList.add("card");
   const cardBody = document.createElement("div");
-  // card.append(cardBody);
   cardBody.classList.add("card-body");
 
   const cardInstructions = document.createElement("div.card-text");
@@ -161,8 +137,8 @@ function createCard(drink) {
   const title = document.createElement("div.card-title");
   title.textContent = drink.strDrink;
   const span = document.createElement("span.card-subtitle");
+  
   let recipe = []
-
   let ingredientsArray = Object.values(drink).map((ingredient) => {
     return ingredient;
   });
@@ -196,12 +172,4 @@ toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
 });
 
-// async function fetchCocktailInfo(url, input) {
-//   //function written as async await, to test the api
-//   // const response = await fetch(url);
-//   // const data = await response.json();
-//   // const drinkFound = data.drinks.find((drink) => drink.strDrink.toLowerCase() === input.toUpperCase());
-//   // console.log(drinkFound)
 
-//   singleCocktail(data, input);
-// }

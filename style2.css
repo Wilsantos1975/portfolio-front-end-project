@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:700&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 /* this is a reset. box-sizing : border-box,on an element, padding and border are included in the width and height: */
 * {
     box-sizing: border-box;
@@ -9,6 +9,7 @@ html, body {
     height: 100%;
 }
 body {
+  
     margin: 0%;
     padding: 0%;
     display: flex;
@@ -16,16 +17,16 @@ body {
     background-image: url(./assets/pylyp-sukhenko-ibh9J-fIgZU-unsplash.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-  /* height: 850px; */
-  
-  /* why the height of the main children is changed here ? */
-  /* background: #345783; */
-  /* background pic goes here */
-  /* font-family: sans-serif; */
-  /* text-align: center; */
-  /* color: white; */
-  /* flex-direction: column; */
+    background-color: #2D2320;
+
 }
+.second-html {
+  background-image: url(./assets/m-s-meeuwesen-QYWYnzvPTAQ-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #2D2320;
+}
+
 
 .navbar {
   display: flex;
@@ -47,6 +48,8 @@ body {
 }
 /* container of the li , have to set parent first */
 .navbar-links ul {
+  font-family: Lobster;
+  font-size: 25px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -84,47 +87,21 @@ body {
   background-color: white;
   border-radius: 10px;
 }
-
-main h1 {
-    color: antiquewhite;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
-.main-div {
-
-  /* display: flex; */
-  /* flex: 1; */
-}
  
 .row {
-    /* display: flex; */
-    /* flex-direction: column; */
-   /* text-align: center; */
-   
-    color:  red;
+    color: white;
+    justify-content: space-between;
 }
 
 .card {
+  font-family: Lobster;
+  border: 2px solid black;
   width: 200px;
   margin-bottom: 25px;
 }
 
-.left {
-    border: pink solid 3px;
-  padding: 3em 0 3em 0;
-  flex: 1 1 100px;
-}
-
-.left h1 {
-    color: aqua;
-}
-
 main {
-  /* display: column; */
-  /* justify-content: start; */
   text-align: center;
-  
-  /* border: #178761 solid; */
   padding: 3em 0 3em 0;
   flex: 5 5 150px; 
 }
@@ -135,18 +112,15 @@ main ul li {
 }
 
 main li a {
-    color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
-.right {
- border: orange solid 3px;
-  padding: 3em 0 3em 0;
-  flex: 1 1 100px;
-}
 
 footer {
+  font-family: Lobster;
+  text-align: center;
+  color: white;
   position: fixed;
   width: 100%;
   background: #262626;
@@ -156,9 +130,35 @@ footer {
 }
 
 #container {
+  font-family: Roboto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+}
+
+form {
+  font-family: Lobster;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content:safe
+ 
+}
+
+img {
+  width: 150px;
+}
+
+.second-html{
+  width: 100%;
+}
+
+.about {
+  font-size: x-large;
+  font-family: Lobster;
+  color: chocolate;
+  text-align: center;
 
 }
 
