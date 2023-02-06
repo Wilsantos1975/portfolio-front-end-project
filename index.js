@@ -46,6 +46,13 @@ function fetchCocktailInfo(url, input) {
 }
 
 function handleCocktail(cocktail, input) {
+
+  if (input === "") {   
+    alert("Please enter a cocktail name");  
+  } else if (cocktail.drinks === null) {
+    alert("Please enter a valid cocktail name");
+  } 
+
   const drinkFound = cocktail.drinks.find(
     (drink) => drink.strDrink.toLowerCase() === input.toLowerCase()
   );
@@ -135,6 +142,7 @@ function createCard(drink) {
   cardImage.className = "card-img-top";
   cardImage.src = drink.strDrinkThumb;
   const title = document.createElement("div.card-title");
+  title.classList.add("card-title");
   title.textContent = drink.strDrink;
   const span = document.createElement("span.card-subtitle");
   
@@ -147,7 +155,7 @@ function createCard(drink) {
   for (let i = 0; i < 8; i++) {
     let ingredients = ingredientsArray.slice(17, 25);
     let measures = ingredientsArray.slice(32, 40);
-    if (ingredients[i] !== null || measures[i] !== null) {
+    if (ingredients[i] !== null && measures[i] !== null) {
       recipe.push(`${ingredients[i]} - ${measures[i]}`);
       console.log(recipe);
     }

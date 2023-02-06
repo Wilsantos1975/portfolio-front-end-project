@@ -8,6 +8,14 @@
 html, body {
     height: 100%;
 }
+
+.card-title {
+  font-size: x-large;
+  font-weight: 900;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem;
+}
 body {
   
     margin: 0%;
@@ -18,6 +26,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #2D2320;
+    
 
 }
 .second-html {
@@ -34,6 +43,7 @@ body {
   align-items: center;
   background: #262626;
   color: white;
+  
 }
 
 .brand-title {
@@ -48,7 +58,7 @@ body {
 }
 /* container of the li , have to set parent first */
 .navbar-links ul {
-  font-family: Lobster;
+  font-family: Inter;
   font-size: 25px;
   margin: 0;
   padding: 0;
@@ -94,7 +104,7 @@ body {
 }
 
 .card {
-  font-family: Lobster;
+  font-family: Inter;
   border: 2px solid black;
   width: 200px;
   margin-bottom: 25px;
@@ -118,7 +128,7 @@ main li a {
 
 
 footer {
-  font-family: Lobster;
+  font-family: Inter;
   text-align: center;
   color: white;
   position: fixed;
@@ -130,7 +140,7 @@ footer {
 }
 
 #container {
-  font-family: Roboto;
+  font-family: Inter;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -144,7 +154,7 @@ footer {
 }
 
 form {
-  font-family: Lobster;
+  font-family: Inter;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,8 +175,11 @@ img {
   font-family: Lobster;
   color: chocolate;
   text-align: center;
-
 }
+
+/* .card-title {
+  font-size: a5;
+} */
 
 @media (max-width: 400px) {
   .toggle-button {
