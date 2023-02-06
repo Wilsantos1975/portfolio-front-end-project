@@ -167,13 +167,17 @@ img {
 }
 
 .second-html{
+  
   width: 100%;
 }
 
 .about {
-  font-size: x-large;
-  font-family: Lobster;
-  color: chocolate;
+  font-family: Inter;
+  width: 100%;
+  margin-top: 180px;
+  font-size: xx-large;
+  font-family: Inter;
+  color: coral ;
   text-align: center;
 }
 
